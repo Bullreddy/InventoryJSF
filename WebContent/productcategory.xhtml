@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h = "http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+<head>
+  <title><ui:insert name="title">Default title</ui:insert></title>
+</head>
+
+<body>
+	<ui:composition template="defaulttemplate.xhtml">
+
+		<ui:define name="content">
+			<h:form>
+			<h:panelGrid columns="4" width="100%">
+				<h:outputLabel value="Product Category ID:"/>
+				<h:inputText id="productCategoryID" value="#{productCategory.productCategoryID}"/>
+				<h:outputLabel value="Product Category Description:"/>
+				<h:inputText id="productCategoryDescription" value="#{productCategory.productCategoryDescription}"/>
+				<h:outputLabel value="Status:"/>
+				<h:selectOneMenu id="status" value="#{productCategory.status}">
+					<f:selectItem itemLabel="Active"  itemValue="active"></f:selectItem>
+					<f:selectItem itemLabel="InActive"  itemValue="Inactive"></f:selectItem>
+				</h:selectOneMenu>
+			</h:panelGrid>
+			<h:commandButton action="#{productCategory.save}" value="Save"></h:commandButton>
+      		</h:form>
+      	</ui:define>
+	</ui:composition>
+</body>
+
+</html>
